@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ranking</title>
+</head>
+<h1 class="page-header" style="font-family: 'Stencil Std'; font-size: 250%; color:darkred" ALIGN="center">SERVICE PROVIDERS ACCORDING TO THE RANKING </h1>
+<body style="background-color: darkseagreen;">
+<ul type=None>
+{% for i in result %}
+    <li style="margin-bottom:10px; font-size: 150%; text-align: center">
+<span style="font-family: 'Stencil Std'">{{ i.provider }}</span>
+    </li>
+{% endfor %}
+</ul>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Select Features</title>
+    {% load staticfiles %}
+     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src={% static 'js/bootstrap-switch.js' %}></script>
+    <script src={% static 'js/highlight.js' %}></script>
+</head>
+
+<body style="background-color: darkseagreen">
+<div class="container">
+  <h2 class="page-header" style="font-family: 'Stencil Std'; font-size: 250%; color:darkred" ALIGN="center" id="name">Select the Features of {{ name }}</h2>
+
+  <form role="form" action="{% url 'display-ranking' service=name %}">
+
+   {% for i in result %}
+       {%csrf_token%}
+    <label class="checkbox-inline">
+      <input type="checkbox" name="check" value={{i.feature__id }}><span style="font-family: 'Baskerville Old Face';font-size: 150%">{{ i.feature__feature }}</span>
+    </label>
+   {% endfor %}
+  <br/>
+  <input class="'btn btn-primary btn-sm col-lg-4'" type="submit" value="submit"/>
+  </form>
+</div>

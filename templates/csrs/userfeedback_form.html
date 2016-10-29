@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+    <title>User FeedBack</title>
+</head>
+<body background={% static "image/userBg.jpg" %}>
+<nav style="padding-left: 80%">
+    <a href="../list_services"><button>View Services</button></a>
+</nav>
+<h1 class="page-header" style="font-family: 'Stencil Std'; font-size: 250%; color:darkred" ALIGN="center">User FeedBack</h1>
+<div align="center">
+<form method="post" action="">
+{% csrf_token%}
+{{ form.as_p }}
+    <input type="submit" value="Save">
+    </form>
+</div>
+</body>
+</html>

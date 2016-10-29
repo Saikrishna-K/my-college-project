@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     {% load staticfiles %}
+    <title>ListView of Services</title>
+</head>
+<body background={% static 'image/image.jpg'%}>
+
+<nav>
+
+    <div align="right">
+        <a href="../list_services"><button>View Services</button></a>&nbsp;&nbsp;&nbsp;
+        <a href="../logout"><button>logout</button></a>
+    </div>
+
+    <div align="center" style="padding: 2%">
+
+        <a href="../create_provider"><button>Add Provider</button></a>
+        <a href="../create_service"><button >Add Service</button></a>
+        <a href="../create_feature"><button>Add Feature</button></a>
+        <a href="../create_providerservice"><button>Add Service To Provider</button></a>
+        <a href="../create_servicefeature"><button>Add Feature To Service</button></a>
+        <a href="../benchmark"><button>Add Benchmark testing results</button></a>
+
+    </div>
+
+</nav>
+
+<table border="2" align="center" style="border-spacing:2px; color: whitesmoke;font-family: 'Times New Roman';font-size: larger; background-color: #204d74">
+    <caption style="font-family: 'Stencil Std'; font-size:larger; color:inherit">Service Provider Details</caption>
+<thead><td>Provider ID</td><td>Provider Name</td></thead>
+{% for i in index %}
+    <tr>
+    <td>{{ i.id }}</td>
+    <td>{{ i.provider }}</td>
+    </tr>
+{% endfor %}
+</table>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+{#    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">#}
+{#    <script src="{% static 'js/jquery.min.js' %}"></script>#}
+{#    <script src="{% static 'js/bootstrap.min.js' %}"></script>#}
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <title>Welcome to Cloud Selection Services</title>
+</head>
+
+<body background={% static "image/userBg.jpg" %}>
+<nav>
+    <div style="padding-left: 80%">
+    <a href="/csrs/user_feedback/" STYLE="padding: 2%;height: 3%;"><button>Give Feedback</button></a>
+    &nbsp;&nbsp;
+    <a href="/csrs/list_service/" STYLE="padding: 2%;height: 3%;"><button>BenchMark Rating</button></a>
+    </div>
+</nav>
+
+<h1 class="page-header" style="font-family: 'Stencil Std'; font-size: 250%; color:darkred" ALIGN="center">SERVICES OFFERED</h1>
+<ul style="text-align: center; font-size: 200%;font-family: 'Tempus Sans ITC'; list-style: none">
+{#<h2 class="panel-body" style="font-family: 'Baskerville Old Face'; font-size:150%;color:darkred" ALIGN="center">IaaS</h2>#}
+    {% for i in service_list %}
+    <li>
+    {% csrf_token %}
+    <a href="{% url 'select-features' name=i.name %}" class='btn btn-primary btn-sm col-lg-4' style="margin-bottom:10px; font-size: 75%" data-toggle="popover" data-placement="bottom" title="description" data-content={{i.description}}> {{i.name}}</a>
+    </li>
+   {% endfor %}
+</ul>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();
+});
+</script>
+
+</body>
+</html>
